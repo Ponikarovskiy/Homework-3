@@ -41,38 +41,76 @@
 // // A (3,6,8); B (2,1,-7), -> 15.84
 // // A (7,-5, 0); B (1,-1,9) -> 11.53
 
-Console.Clear();
-System.Console.WriteLine();
-System.Console.WriteLine("*Задача № 21. Поиск расстояние между двумя точками в 3D пространстве*");
-System.Console.WriteLine();
+// Console.Clear();
+// System.Console.WriteLine();
+// System.Console.WriteLine("*Задача № 21. Поиск расстояние между двумя точками в 3D пространстве*");
+// System.Console.WriteLine();
 
-int x1 = Coordinate("-x-", "A");
-int y1 = Coordinate("-y-", "A");
-int z1 = Coordinate("-z-", "A");
-int x2 = Coordinate("-x-", "B");
-int y2 = Coordinate("-y-", "B");
-int z2 = Coordinate("-z-", "B");
+// int x1 = Coordinate("-x-", "A");
+// int y1 = Coordinate("-y-", "A");
+// int z1 = Coordinate("-z-", "A");
+// int x2 = Coordinate("-x-", "B");
+// int y2 = Coordinate("-y-", "B");
+// int z2 = Coordinate("-z-", "B");
 
-int Coordinate(string coorName, string pointName)
-{
-    Console.Write($"Введите координату {coorName} точки {pointName}: ");
-    return Convert.ToInt32(Console.ReadLine());
-}
+// int Coordinate(string coorName, string pointName)
+// {
+//     Console.Write($"Введите координату {coorName} точки {pointName}: ");
+//     return Convert.ToInt32(Console.ReadLine());
+// }
 
-double result (double x1, double x2, 
-                double y1, double y2, 
-                double z1, double z2){
-  return Math.Sqrt(Math.Pow((x2-x1), 2) + 
-                   Math.Pow((y2-y1), 2) + 
-                   Math.Pow((z2-z1), 2));
-}
+// double result (double x1, double x2, 
+//                 double y1, double y2, 
+//                 double z1, double z2){
+//   return Math.Sqrt(Math.Pow((x2-x1), 2) + 
+//                    Math.Pow((y2-y1), 2) + 
+//                    Math.Pow((z2-z1), 2));
+// }
 
-double SegmentLength =  Math.Round (result(x1, x2, y1, y2, z1, z2), 2 );
+// double SegmentLength =  Math.Round (result(x1, x2, y1, y2, z1, z2), 2 );
 
-Console.WriteLine($"Длина отрезка  {SegmentLength}");
+// Console.WriteLine($"Длина отрезка  {SegmentLength}");
 
 // // Задача 23
 // // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 // // 3 -> 1, 8, 27
 // // 5 -> 1, 8, 27, 64, 125
 
+Console.Clear();
+System.Console.WriteLine();
+System.Console.WriteLine("*Задача № 23. Вывод таблицы кубов*");
+System.Console.WriteLine();
+System.Console.WriteLine("Введите число");
+
+if (!int.TryParse(Console.ReadLine(), out int cube))
+{
+    Console.WriteLine("Ввод неверный. Пожалуйста, введите корректное число");
+    return;
+}
+
+void cube2(int[] cube)
+{
+    int count = 0;
+    int length = cube.Length;
+    while (count < length)
+    {
+        cube[count] = Convert.ToInt32(Math.Pow(count, 3));
+        count += 1;
+    }
+}
+
+void PrintArry(int[] coll)
+{
+    int count = coll.Length;
+    int index = 1;
+    while (index < count)
+    {
+        Console.Write(coll[index] + " ");
+        index += 1;
+    }
+}
+
+int[] arry = new int[cube + 1];
+cube2(arry);
+PrintArry(arry);
+System.Console.WriteLine();
